@@ -2,11 +2,15 @@ package com.sreesharp.sreechat.adapters;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v4.widget.CursorAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -15,6 +19,8 @@ import com.sreesharp.sreechat.models.MessageType;
 import com.sreesharp.sreechat.models.User;
 import com.sreesharp.sreechat.utilities.DbHelper;
 import com.sreesharp.sreechat.utilities.Utility;
+
+import java.io.IOException;
 
 /**
  * Created by purayil on 10/17/2015.
@@ -34,6 +40,7 @@ public class MessageCursorAdapter extends CursorAdapter {
         TextView tvBody = (TextView) view.findViewById(R.id.tvBody);
         TextView tvTime = (TextView) view.findViewById(R.id.tvTime);
         RelativeLayout msgLayout = (RelativeLayout)view.findViewById(R.id.rlMessage);
+        ImageView ivMessage = (ImageView)view.findViewById(R.id.ivMessage);
         // Extract properties from cursor
         String text = cursor.getString(cursor.getColumnIndexOrThrow(DbHelper.KEY_MESSAGE_TEXT));
         String time = cursor.getString(cursor.getColumnIndexOrThrow(DbHelper.KEY_MESSAGE_DATE));
@@ -51,5 +58,15 @@ public class MessageCursorAdapter extends CursorAdapter {
         tvBody.setText(text);
         tvTime.setText(Utility.getRelativeTimeAgo(time));
 
+        if(msgType == MessageType.Image){
+            tvBody.setVisibility(View.GONE);
+            ivMessage.setVisibility(view.VISIBLE);
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(view.getContext().getContentResolver(), Uri.parse(text));
+                ivMessage.setImageBitmap(bitmap);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -1,29 +1,16 @@
 package com.sreesharp.sreechat.activties;
 
-import android.database.Cursor;
-import android.net.Uri;
-import android.provider.ContactsContract;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.sreesharp.sreechat.R;
 import com.sreesharp.sreechat.adapters.TabPagerAdapter;
-import com.sreesharp.sreechat.fragments.ChatsFragment;
 import com.sreesharp.sreechat.models.User;
-import com.sreesharp.sreechat.utilities.Utility;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity{
     FragmentPagerAdapter adapterViewPager;
@@ -47,8 +34,6 @@ public class MainActivity extends AppCompatActivity{
             User.setCurrentUser(new User("0000","Self","NoPic"));
 
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

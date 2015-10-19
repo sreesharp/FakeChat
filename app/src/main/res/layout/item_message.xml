@@ -18,6 +18,11 @@
             android:layout_alignParentRight="false"
             android:autoLink="all"
             android:text="" />
+        <ImageView android:id="@+id/ivMessage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            />
         <TextView
             android:id="@+id/tvTime"
             style="@style/CommentCellTime"

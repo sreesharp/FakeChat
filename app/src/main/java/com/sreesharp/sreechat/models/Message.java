@@ -16,7 +16,9 @@ public class Message {
     public String date; //yyyy-MM-dd HH:mm:ss
     public MessageType type;
 
-    public Message(){}
+    public Message(){
+
+    }
 
     public Message(String fromUserId, String toUserId, String text){
         initialize(fromUserId, toUserId, text, MessageType.Text);

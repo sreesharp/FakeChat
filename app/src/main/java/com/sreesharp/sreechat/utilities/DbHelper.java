@@ -178,7 +178,7 @@ public class DbHelper extends SQLiteOpenHelper {
             values.put(KEY_FROM_USER_ID, msg.fromUser);
             values.put(KEY_TO_USER_ID, msg.toUser);
             values.put(KEY_MESSAGE_TEXT, msg.text);
-            values.put(KEY_MESSAGE_TYPE, String.valueOf(msg.type));
+            values.put(KEY_MESSAGE_TYPE, msg.type.ordinal());
             values.put(KEY_MESSAGE_DATE, msg.date);
 
             msgId = db.insertOrThrow(TABLE_MESSAGES, null, values);

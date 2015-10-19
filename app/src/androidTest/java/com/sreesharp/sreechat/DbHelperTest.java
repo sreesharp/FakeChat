@@ -20,7 +20,6 @@ import java.util.List;
  */
 public class DbHelperTest  extends AndroidTestCase {
 
-
     public void testInitializeDb()  {
         DbHelper dbHelper = DbHelper.getInstance(getContext());
         Assert.assertTrue(dbHelper != null);
@@ -28,7 +27,7 @@ public class DbHelperTest  extends AndroidTestCase {
 
     public void testAddUser1()  {
         DbHelper dbHelper = DbHelper.getInstance(getContext());
-        User user = new User("12","user1","http://url22");
+        User user = new User("12","user1","content://com.android.providers.media.documents/document/image%3A69");
         ChatUser chUser = new ChatUser();
         chUser.user = user;
         chUser.lastMessage = "testfrom 12";
@@ -39,7 +38,7 @@ public class DbHelperTest  extends AndroidTestCase {
 
     public void testAddUser2()  {
         DbHelper dbHelper = DbHelper.getInstance(getContext());
-        User user = new User("13","user2","http://url");
+        User user = new User("13","user2","content://com.android.providers.media.documents/document/image%3A69");
         ChatUser chUser = new ChatUser();
         chUser.user = user;
         chUser.lastMessage = "testfrom 12";
