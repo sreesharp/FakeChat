@@ -74,11 +74,9 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String message = etPostMessage.getText().toString();
-                if(message !=null  &&  !message.isEmpty()) {
+                if (message != null && !message.isEmpty()) {
                     postMessage(message);
                     etPostMessage.setText(null);
-                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(etPostMessage.getWindowToken(), 0);
                 }
             }
         });
