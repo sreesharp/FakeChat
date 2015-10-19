@@ -1,0 +1,52 @@
+<resources>
+    <!-- WhatsApp Gree - 075E55 -->
+    <color name="DarkGreen">#2290ff</color>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+
+    <style name="MyTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/DarkGreen</item>
+        <item name="tabTextAppearance">@style/MyTabTextAppearance</item>
+        <item name="tabIndicatorHeight">2dp</item>
+    </style>
+    <style name="MyTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/DarkGreen</item>
+        <item name="android:titleTextStyle">@style/MyActionBar.TitleTextStyle</item>
+
+        <!-- Support library compatibility -->
+        <item name="background">@color/DarkGreen</item>
+        <item name="titleTextStyle">@style/MyActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="MyActionBar.TitleTextStyle"
+        parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="CommentCell">
+        <item name="android:background">@drawable/container_drop_shadow</item>
+    </style>
+
+    <style name="CommentCell.WithPadding">
+        <item name="android:paddingLeft">@dimen/card_horizontal_padding</item>
+        <item name="android:paddingRight">@dimen/card_horizontal_padding</item>
+        <item name="android:paddingTop">@dimen/card_vertical_padding</item>
+        <item name="android:paddingBottom">@dimen/card_vertical_padding</item>
+    </style>
+
+    <style name="CommentCellTime">
+        <item name="android:textColor">@color/textMessageTime</item>
+        <item name="android:textSize">@dimen/comment_cell_time_textSize</item>
+    </style>
+
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:paddingTop="5dp">
+
+    <RelativeLayout
+        style="@style/CommentCell"
+        android:id="@+id/rlMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/tvBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="false"
+            android:autoLink="all"
+            android:text="" />
+        <TextView
+            android:id="@+id/tvTime"
+            style="@style/CommentCellTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:text="6md" />
+    </RelativeLayout>
+</RelativeLayout>
+
