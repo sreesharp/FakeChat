@@ -1,5 +1,6 @@
 package com.sreesharp.sreechat.activties;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -75,12 +77,15 @@ public class ChatActivity extends AppCompatActivity {
                 if(message !=null  &&  !message.isEmpty()) {
                     postMessage(message);
                     etPostMessage.setText(null);
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(etPostMessage.getWindowToken(), 0);
                 }
             }
         });
 
         messageAdapter = new MessageCursorAdapter(this, DbHelper.getInstance(this).getAllMessagesCursor(userTo.contactId, userFrom.contactId));
         lvMessageList.setAdapter(messageAdapter);
+        lvMessageList.setSelection(messageAdapter.getCount() - 1);
 
     }
 
@@ -114,6 +119,7 @@ public class ChatActivity extends AppCompatActivity {
 
     public void refresh(){
         messageAdapter.changeCursor(DbHelper.getInstance(this).getAllMessagesCursor(userTo.contactId, userFrom.contactId));
+        lvMessageList.smoothScrollToPosition(messageAdapter.getCount());
     }
 
     @Override
